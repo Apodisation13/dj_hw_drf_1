@@ -8,7 +8,7 @@ class ProjectSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class MeasurmentSerializer(serializers.ModelSerializer):
+class MeasurementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Measurement
         fields = "__all__"

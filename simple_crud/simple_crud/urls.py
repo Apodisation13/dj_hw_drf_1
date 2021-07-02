@@ -8,11 +8,14 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
+from django.conf.urls.static import static  # добавка для статик?
+from django.conf import settings  # и этотоже?
+
 
 router = DefaultRouter()
 # router.register('car', CarApiViewSet)
 router.register('project', ProjectViewSet)
-router.register('measurment', MeasurementViewSet)
+router.register('measurement', MeasurementViewSet)
 
 
 # TODO: настройте роутер и подключите `ProjectViewSet` и `MeasurementViewSet`
@@ -23,3 +26,6 @@ urlpatterns = [
     # path('cars/', CarApiView.as_view(), name='car')
     path('', include(router.urls))
 ]
+
+if settings.DEBUG:  # это добавил
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
