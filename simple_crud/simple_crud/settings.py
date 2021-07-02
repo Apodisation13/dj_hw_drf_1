@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     'measurements',
+    'car_test'
 ]
 
 MIDDLEWARE = [
@@ -77,12 +78,17 @@ WSGI_APPLICATION = 'simple_crud.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+with open('D:\Python Projects\dj_hw_drf_1\simple_crud\simple_crud\password.txt') as file:
+    PASSWORD = file.readline()
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'netology_simple_crud',
+        'NAME': 'dj_hw_3',
         'HOST': '127.0.0.1',
         'PORT': '5432',
+        'USER': 'postgres',
+        'PASSWORD': PASSWORD
     }
 }
 
